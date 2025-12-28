@@ -3,7 +3,7 @@
 ## Project Description
 A vacation rental management system that enables listing, booking, and managing vacation rentals across Israel. The system includes interfaces for both regular users and property owners.
 
-## 📂 Project Resources
+## Project Resources
 -  **[View Project Presentation](./project-presentation.pdf)** - Detailed overview of the system
 
 ## Technologies
