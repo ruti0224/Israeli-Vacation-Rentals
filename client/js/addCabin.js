@@ -2,22 +2,14 @@
 if (!sessionStorage.getItem('idOwner')) {
   window.location.href = 'login.html';
 }
-
-// פונקציית התנתקות
-// addCabin.js
-// קובץ זה מטפל בטופס הוספת צימר בצד הלקוח
-
-// משתנה לטופס ול-div להודעות
 const form = document.getElementById('cabinForm');
 const successMessage = document.getElementById('successMessage');
 
-// בדיקת מזהה צימר ב-URL
 let cabinId = null;
 window.addEventListener('DOMContentLoaded', async () => {
   const urlParams = new URLSearchParams(window.location.search);
   cabinId = urlParams.get('id');
   if (cabinId) {
-    // מצב עדכון: נטען נתוני הצימר ונמלא את הטופס
     try {
       const res = await fetch(`http://localhost:3001/cabins/${cabinId}`);
       const cabin = await res.json();
@@ -30,7 +22,6 @@ window.addEventListener('DOMContentLoaded', async () => {
         form.price.value = cabin.price || '';
         form.description.value = cabin.description || '';
         form.pictures.value = (cabin.pictures || []).join(', ');
-        // שנה כותרת וכפתור ל"עדכון צימר"
         document.getElementById('cabinFormTitle').textContent = 'עדכון צימר';
         document.getElementById('cabinFormBtn').textContent = 'שמור שינוי';
       }
@@ -43,7 +34,6 @@ window.addEventListener('DOMContentLoaded', async () => {
 
 form.addEventListener('submit', async function(e) {
   e.preventDefault();
-  // איסוף נתונים מהטופס
   const name = form.name.value;
   const city = form.city.value;
   const numOfBeds = form.guestsCount.value;

@@ -1,5 +1,3 @@
-// ownerCabins.js
-// מציג את כל הצימרים של הבעלים הנוכחי
 
 document.addEventListener('DOMContentLoaded', async () => {
   const user = JSON.parse(localStorage.getItem('currentUser')) || {};
@@ -46,17 +44,12 @@ function renderCabins(cabins) {
     container.appendChild(card);
   });
 
-  // מאזינים לכפתורי מחיקה
   document.querySelectorAll('.delete-cabin-btn').forEach(btn => {
     btn.addEventListener('click', async function() {
       const id = this.getAttribute('data-id');
-      console.log('Frontend: Attempting to delete cabin with ID:', id); // הוספתי שורה
-      
       if (confirm('האם למחוק את הצימר?')) {
         try {
           const res = await fetch(`http://localhost:3001/cabins/${id}`, { method: 'DELETE' });
-          console.log('Frontend: Response status:', res.status); // הוספתי שורה
-          
           if (res.status === 204) {
             alert('הצימר נמחק בהצלחה');
             location.reload();
@@ -72,7 +65,6 @@ function renderCabins(cabins) {
     });
   });
 
-  // מאזינים לכפתורי עדכון
   document.querySelectorAll('.update-cabin-btn').forEach(btn => {
     btn.addEventListener('click', function() {
       const id = this.getAttribute('data-id');

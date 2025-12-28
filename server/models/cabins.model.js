@@ -5,7 +5,7 @@ const cabinsSchema = new Schema({
   city: { type: String, required: true },
   region: { type: String, required: true },
   numOfBeds: { type: Number, required: true },
-  phone: { type: String, required: true }, // תמיד String, כדי לשמור 0 מוביל
+  phone: { type: String, required: true }, 
   price: { type: Number, required: true },
   description: { type: String },
   pictures: [{ type: String }], 

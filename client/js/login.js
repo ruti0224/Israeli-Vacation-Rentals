@@ -1,5 +1,4 @@
 
-// מקבל מה-DOM את האלמנטים של הטפסים והודעות
 const form = document.getElementById('loginForm');
 const loginMessage = document.getElementById('loginMessage');
 const registerForm = document.getElementById('registerForm');
@@ -37,17 +36,11 @@ form.addEventListener('submit', async function(e) {
   }
 
   try {
-    console.log('שולח בקשת התחברות...');
-    
     const response = await fetch('http://localhost:3001/users/login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ idUsers: idNumber, pin: password })
     });
-
-    console.log('קוד תגובה:', response.status);
-
-    // בדיקה אם התגובה היא JSON
     const contentType = response.headers.get('content-type');
     
     if (!contentType || !contentType.includes('application/json')) {
@@ -65,8 +58,6 @@ form.addEventListener('submit', async function(e) {
     }
 
     const data = await response.json();
-    console.log('תגובה מהשרת:', data);
-    
     if (response.ok) {
       sessionStorage.setItem('idOwner', data.user.idUsers);
       sessionStorage.setItem('userType', data.user.role);
@@ -133,8 +124,6 @@ registerForm.addEventListener('submit', async function(e) {
     }
 
     const data = await response.json();
-    console.log('תגובה מהשרת:', data);
-    
     if (response.ok) {
       registerMessage.textContent = 'המשתמש נרשם בהצלחה! מעביר...';
       registerMessage.style.color = 'green';

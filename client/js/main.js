@@ -1,4 +1,3 @@
-// ====================== בדיקת התחברות ======================
 if (!sessionStorage.getItem('idOwner') && !sessionStorage.getItem('userId')) {
   window.location.href = 'login.html';
 }
@@ -9,8 +8,6 @@ document.addEventListener("DOMContentLoaded", function() {
   const sidebar = document.getElementById("ownerControls");
   const cabinsBtn = document.getElementById("ownerCabinsBtn");
   const ordersBtn = document.getElementById("ownerOrdersBtn");
-
-  // מציג כפתורי ניהול רק אם המשתמש הוא בעלים (מתעלם מרווחים ורישיות)
   if (userType && userType.trim().toLowerCase() === "owner") {
     if (sidebar) sidebar.style.display = "block";
     if (cabinsBtn) cabinsBtn.style.display = "inline-block";
@@ -39,7 +36,6 @@ async function displayCabins(list) {
     console.error('שגיאה בשליפת הצימרים שאהבתי', err);
   }
 
-  // בונה כרטיס לכל צימר
   list.forEach(c => {
     const card = document.createElement("div");
     card.className = "cabin-card";

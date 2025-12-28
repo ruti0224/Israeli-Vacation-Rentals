@@ -5,7 +5,6 @@ if (!sessionStorage.getItem('idOwner')) {
 function renderCabin() {
  const raw = sessionStorage.getItem('selectedCabin');
  const cabin = JSON.parse(raw);
-   console.log('קיבלתי את כל הקאבין:', cabin);
   if (!cabin) return;
 
   // תמונות

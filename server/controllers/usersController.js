@@ -97,7 +97,6 @@ export async function getFavorites(req, res) {
     const user = await User.findOne({ idUsers: id });
     if (!user) 
       return res.status(404).json({ msg: "משתמש לא נמצא" });
-    console.log('User found, favorites:', user.favoriteCabins);
     res.json(user.favoriteCabins || []);
   } catch (error) {
     console.error('Error getting favorites:', error);

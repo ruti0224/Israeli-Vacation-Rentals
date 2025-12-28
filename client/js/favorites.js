@@ -1,10 +1,7 @@
 
-// בדיקת התחברות
 if (!sessionStorage.getItem('idOwner')) {
   window.location.href = 'login.html';
 }
-
-// מציג את הצימרים שאהבתי בפועל מהשרת
 document.addEventListener('DOMContentLoaded', async () => {
   const userId = sessionStorage.getItem('idOwner');
   const container = document.getElementById('favorites-list');
@@ -14,10 +11,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     return;
   }
 
-  // הצגת מצב טעינה
   container.innerHTML = '<div class="loading-state"><p>טוען צימרים...</p></div>';
-
-  // שלב 1: שלוף את כל הצימרים מהשרת
   let cabins = [];
   try {
     const res = await fetch('http://localhost:3001/cabins');
@@ -29,19 +23,17 @@ document.addEventListener('DOMContentLoaded', async () => {
     return;
   }
 
-  // שלב 2: שלוף את רשימת האהובים של המשתמש
   let favorites = [];
   try {
     const favRes = await fetch(`http://localhost:3001/users/${userId}/favorites`);
     if (favRes.ok) {
-      favorites = await favRes.json(); // מערך של מזהי צימרים
+      favorites = await favRes.json(); 
     }
   } catch (err) {
     container.innerHTML = '<p class="error-message">שגיאה בטעינת רשימת האהובים.</p>';
     return;
   }
 
-  // שלב 3: סנן את הצימרים שאהבתי
   const favoriteCabins = cabins.filter(c => favorites.includes(c._id));
   container.innerHTML = '';
   
@@ -57,7 +49,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     return;
   }
 
-  // יצירת div עבור הרשת
   const gridDiv = document.createElement('div');
   gridDiv.className = 'cabins-grid';
 

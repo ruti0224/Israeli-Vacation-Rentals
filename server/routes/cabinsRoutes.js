@@ -12,11 +12,9 @@ import {
 
 const router = express.Router();
 
-// Routes ספציפיים ראשון!
 router.get('/owner/:idOwner', getCabinByOwner);
 router.get('/region/:region', getCabinsByRegion);
 
-// Generic routes אחרון
 router.get('/:id', async (req, res) => {
     try {
         const { id } = req.params;

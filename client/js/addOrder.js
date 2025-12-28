@@ -10,13 +10,11 @@ const dateStartInput = document.getElementById("dateStart");
 const dateEndInput = document.getElementById("dateEnd");
 const totalPriceInput = document.getElementById("totalPrice");
 
-// קבלת cabinId מה-URL
 const urlParams = new URLSearchParams(window.location.search);
 const cabinId = urlParams.get('cabinId');
 let pricePerNight = 0;
 let numOfBeds = null;
 
-// פונקציה שמחזירה מערך של כל התאריכים התפוסים עבור הצימר (לא כולל יום ה-checkout)
 async function getUnavailableDates(cabinId) {
   try {
     const res = await fetch('http://localhost:3001/orders', { method: 'GET' });
@@ -179,7 +177,6 @@ form.addEventListener("submit", async (e) => {
       return;
     }
     const user = await userRes.json();
-    console.log('בדיקת משתמש:', user); // הוספתי שורה
     
     
   

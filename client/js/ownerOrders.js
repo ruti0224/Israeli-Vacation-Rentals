@@ -1,8 +1,5 @@
-// ownerOrders.js
-// מציג את כל ההזמנות של הצימרים שבבעלות המשתמש הנוכחי
 
 document.addEventListener('DOMContentLoaded', async () => {
-  // קבלת idOwner מהמשתמש הנוכחי
   const user = JSON.parse(localStorage.getItem('currentUser')) || {};
   const idOwner = user.tz || sessionStorage.getItem('idOwner');
   if (!idOwner) {

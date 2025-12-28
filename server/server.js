@@ -8,7 +8,7 @@ import { connectDB } from './config/db.js';
 async function main() {
    await connectDB();  
    app.listen(3001, () => {
-   console.log('השרת פעיל על פורט 3001');
+   console.log('Server is running on port 3001');
 });
 }
 main();
