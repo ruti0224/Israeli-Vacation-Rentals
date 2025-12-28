@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>התחברות - צימרים בארץ</title>
+  <link rel="stylesheet" href="../css/login.css">
+  <script defer src="../js/login.js"></script>
+</head>
+<body>
+  
+  <div class="login-container">
+    <h1>התחברות למערכת הצימרים</h1>
+    <form id="loginForm">
+      <label for="idNumber">תעודת זהות</label>
+      <input type="text" id="idNumber" name="idNumber" placeholder="הכנס תעודת זהות" required>
+      <label for="password">סיסמה</label>
+      <input type="password" id="password" name="password" placeholder="הכנס סיסמה" required>
+      <button type="submit">התחבר</button>
+      <p>אין לך חשבון? <a href="#" id="show-register">רשום עכשיו</a></p>
+    </form>
+    <div id="loginMessage" class="login-message"></div>
+    
+    <form id="registerForm" style="display:none; margin-top:32px;">
+      <h2>הרשמה:</h2>
+      <label for="regName">שם מלא</label>
+      <input type="text" id="regName" name="regName" placeholder="הכנס שם מלא" required>
+      <label for="regId">תעודת זהות</label>
+      <input type="text" id="regId" name="regId" placeholder="הכנס תעודת זהות" required>
+      <label for="regMail">אימייל</label>
+      <input type="email" id="regMail" name="regMail" placeholder="הכנס אימייל" required>
+      <label for="regPin">סיסמה</label>
+      <input type="password" id="regPin" name="regPin" placeholder="הכנס סיסמה" required>
+      <label for="regRole">סוג משתמש</label>
+      <select id="regRole" name="regRole" required>
+        <option value="owner">בעל צימר</option>
+        <option value="user">משתמש</option>
+      </select>
+      <button type="submit">הרשם</button>
+      <div id="registerMessage" class="login-message"></div>
+      <p>כבר רשום?<a href="#" id="show-login"> התחבר</a></p>
+    </form>
+  </div>
+</body>
+</html>

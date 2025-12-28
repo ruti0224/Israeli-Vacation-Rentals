@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+  <meta charset="UTF-8">
+  <title>הוספת הזמנה</title>
+  <link rel="stylesheet"  href="../css/addOrder.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <link rel="stylesheet" href="../css/flatpickr-custom.css">
+</head>
+<body>
+    <a href="main.html" id="home"><img src="../images/איקון בית.png" id="homeA"></img></a>
+
+  <div class="form-container">
+    <h2>הוספת הזמנה</h2>
+
+    <form id="orderForm">
+      <label for="userId">ת.ז משתמש</label>
+      <input type="text" id="userId" name="userId" required>
+   <label for="guestsCount">מס' נפשות</label>
+   <input type="text" id="guestsCount" name="guestsCount" required>
+
+      <label for="dateStart">תאריך התחלה</label>
+      <input type="date" id="dateStart" name="dateStart" required>
+
+      <label for="dateEnd">תאריך סיום</label>
+      <input type="date" id="dateEnd" name="dateEnd" required>
+
+
+    <label for="totalPrice">מחיר כולל</label>
+    <input type="number" id="totalPrice" name="totalPrice" disabled required>
+
+      <button type="submit">שמור הזמנה</button>
+    </form>
+    <div class="success-message" id="successMessage"></div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script defer src="../js/addOrder.js"></script>
+</body>
+  <!-- <div style="text-align:center; margin-top:30px;">
+        <a href="ownerCabins.html" id="home"><img src="../images/איקון חץ.png" id="return"></img></a>
+    
+  </div> -->
+</html>

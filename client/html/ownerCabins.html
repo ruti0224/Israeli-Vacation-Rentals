@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+  <meta charset="UTF-8">
+  <title>הצימרים שלי</title>
+  <link rel="stylesheet" href="../css/ownerCabins.css">
+</head>
+<body>
+     <a href="main.html" id="home"><img src="../images/איקון בית.png" id="homeA"></img></a>
+
+  <div class="container" style="background: linear-gradient(90deg, #2193b0, #6dd5ed); min-height: 100vh; padding: 0; margin: 0;">
+    <h2 style="text-align:center; color:white; margin-top:40px; font-size:2.2rem;">הצימרים שבבעלותי</h2>
+    <div style="display:flex; justify-content:flex-end; align-items:center; margin:15px 20px 15px 0;">
+      <button onclick="window.location.href='addCabin.html'" class="add-cabin-btn">הוספת צימר</button>
+    </div>
+    <div id="cabinsList" style="padding: 30px;"></div>
+  </div>
+  <script defer src="../js/ownerCabins.js"></script>
+</body>
+</html>

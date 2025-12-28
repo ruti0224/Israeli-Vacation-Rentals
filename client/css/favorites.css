@@ -1,0 +1,652 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  direction: rtl;
+  background: linear-gradient(135deg, #788ef0 0%, #5eb3be 50%, #e2a6e9 100%);
+  background-size: 400% 400%;
+  animation: gradientFlow 15s ease infinite;
+  min-height: 100vh;
+}
+
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.page-wrapper {
+  min-height: 100vh;
+  padding: 20px;
+}
+
+/* ===================== כפתור בית מעוצב ===================== */
+#home {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  transition: all 0.3s ease;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.1));
+}
+
+#homeA {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: white;
+  padding: 10px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  object-fit: contain;
+  display: block;
+  border: 2px solid #00bfff;
+  box-shadow: 
+    0 0 8px #f30707,
+    0 0 15px #690bed;
+  animation: glowPulse 2s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    box-shadow: 
+      0 0 8px #f30707,
+      0 0 15px #690bed;
+  }
+  50% {
+    box-shadow: 
+      0 0 12px #f30707,
+      0 0 20px #690bed;
+  }
+}
+
+#home:hover {
+  transform: scale(1.15) rotate(-5deg);
+}
+
+
+@keyframes colorPulse {
+  0%, 100% { 
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+  50% { 
+    background-color: rgba(66, 165, 245, 0.5);
+  }
+}
+
+@keyframes buttonPulse {
+  0%, 100% { 
+    transform: scale(1.15) rotate(-5deg);
+    box-shadow: 0 0 15px rgba(103, 126, 234, 0.6);
+  }
+  50% { 
+    transform: scale(1.2) rotate(-5deg);
+    box-shadow: 0 0 25px rgba(103, 126, 234, 0.9);
+  }
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    box-shadow: 
+      0 0 8px #e3a7a7,
+      0 0 15px #542a8f;
+  }
+  50% {
+    box-shadow: 
+      0 0 12px #de8888,
+      0 0 25px #6521c4,
+      0 0 35px #04b6f1;
+  }
+}
+
+/* כותרת */
+.favorites-header {
+  text-align: center;
+  margin: 60px 0 40px;
+  animation: slideDown 0.8s ease-out;
+   color: #fff;
+  text-shadow: 
+    0 0 10px rgba(255, 255, 255, 0.5),
+    0 0 20px rgba(255, 105, 180, 0.4),
+    0 0 30px rgba(138, 43, 226, 0.3);
+  margin-bottom: 10px;
+  animation: textGlow 3s ease-in-out infinite;
+  
+}
+
+
+
+
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+/* רשת כרטיסיות */
+#favorites-list {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.cabins-grid {
+    
+  display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+  /* grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); */
+
+  gap: 30px;
+  padding: 20px 0;
+}
+
+/* כרטיסיית צימר */
+.cabin-card {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 
+    0 10px 30px rgba(0, 0, 0, 0.3),
+    0 0 20px rgba(103, 126, 234, 0.2);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  animation: cardAppear 0.6s ease-out backwards;
+  position: relative;
+  border: 2px solid transparent;
+  cursor: pointer;
+}
+
+/* .cabin-card:nth-child(1) { animation-delay: 0.1s; }
+.cabin-card:nth-child(2) { animation-delay: 0.2s; }
+.cabin-card:nth-child(3) { animation-delay: 0.3s; }
+.cabin-card:nth-child(4) { animation-delay: 0.4s; }
+.cabin-card:nth-child(5) { animation-delay: 0.5s; }
+.cabin-card:nth-child(6) { animation-delay: 0.6s; }
+.cabin-card:nth-child(7) { animation-delay: 0.7s; }
+.cabin-card:nth-child(8) { animation-delay: 0.8s; } */
+/* 
+@keyframes cardAppear {
+  from {
+    opacity: 0;
+    transform: translateY(40px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+} */
+
+/* .cabin-card:hover {
+  transform: translateY(-15px) scale(1.03);
+  box-shadow: 
+    0 20px 50px rgba(0, 0, 0, 0.4),
+    0 0 40px rgba(103, 126, 234, 0.5),
+    0 0 60px rgba(240, 55, 165, 0.3);
+  border-color: rgba(103, 126, 234, 0.6);
+} */
+
+/* תמונת הכרטיסייה */
+.card-image-wrapper {
+  position: relative;
+  height: 240px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #667eea 0%, #8ed7e0 100%);
+}
+
+.card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.cabin-card:hover .card-image {
+  transform: scale(1.15) rotate(2deg);
+}
+
+
+/* .favorite-badge {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: linear-gradient(135deg, #ff6b9d 0%, #c06c84 100%);
+  color: #fff;
+  padding: 8px;
+  border-radius: 50%;
+  box-shadow: 0 4px 15px rgba(255, 107, 157, 0.4);
+  animation: heartBeat 1.5s ease-in-out infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+} */
+/* 
+.favorite-badge svg {
+  display: block;
+} */
+
+/* @keyframes heartBeat {
+  0%, 100% {
+    transform: scale(1);
+  }
+  10% {
+    transform: scale(1.15);
+  }
+  20% {
+    transform: scale(1);
+  }
+} */
+
+/* כפתור הסרה */
+.remove-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  opacity: 0;
+  transform: scale(0.8);
+}
+
+.cabin-card:hover .remove-btn {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.remove-btn:hover {
+  background: #ff4757;
+  transform: scale(1.15) rotate(15deg);
+  box-shadow: 0 4px 15px rgba(255, 71, 87, 0.5);
+}
+
+/* תוכן הכרטיסייה */
+.card-content {
+  padding: 20px;
+}
+
+.cabin-name {
+  color: #2c3e50;
+  margin-bottom: 12px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.cabin-location {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #7f8c8d;
+  margin-bottom: 15px;
+  font-size: 0.95em;
+}
+
+.cabin-location svg {
+  color: #6eb3eb;
+  animation: pinPulse 2s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+@keyframes pinPulse {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
+
+.cabin-rating {
+  margin-bottom: 15px;
+}
+
+.rating-stars {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #f39c12;
+}
+
+.rating-stars svg {
+  animation: starTwinkle 2s ease-in-out infinite;
+}
+
+@keyframes starTwinkle {
+  0%, 100% { 
+    filter: brightness(1) drop-shadow(0 0 2px #f39c12);
+  }
+  50% { 
+    filter: brightness(1.3) drop-shadow(0 0 6px #f39c12);
+  }
+}
+
+.rating-value {
+  color: #2c3e50;
+}
+
+.reviews-count {
+  color: #95a5a6;
+  font-size: 0.9em;
+}
+
+/* תגיות שירותים */
+.cabin-amenities {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 15px;
+}
+
+.amenity-tag {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #fff;
+  padding: 5px 12px;
+  border-radius: 15px;
+  font-size: 0.85em;
+  box-shadow: 0 2px 8px rgba(103, 126, 234, 0.3);
+  transition: all 0.3s ease;
+  animation: tagFloat 3s ease-in-out infinite;
+}
+
+.amenity-tag:nth-child(1) { animation-delay: 0s; }
+.amenity-tag:nth-child(2) { animation-delay: 0.5s; }
+.amenity-tag:nth-child(3) { animation-delay: 1s; }
+
+@keyframes tagFloat {
+  0%, 100% { 
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(103, 126, 234, 0.3);
+  }
+  50% { 
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(103, 126, 234, 0.5);
+  }
+}
+
+.cabin-card:hover .amenity-tag {
+  background: linear-gradient(135deg, #6abace 0%, #f093fb 100%);
+  transform: translateY(-2px);
+}
+
+/* תחתית הכרטיסייה */
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 15px;
+  border-top: 2px solid #ecf0f1;
+  margin-top: 10px;
+}
+
+.price-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.price-amount {
+  color: #667eea;
+  font-size: 1.5em;
+  text-shadow: 0 2px 4px rgba(103, 126, 234, 0.2);
+  animation: priceGlow 2s ease-in-out infinite;
+}
+
+@keyframes priceGlow {
+  0%, 100% {
+    text-shadow: 0 2px 4px rgba(103, 126, 234, 0.2);
+  }
+  50% {
+    text-shadow: 0 2px 8px rgba(103, 126, 234, 0.5);
+  }
+}
+
+.price-period {
+  color: #95a5a6;
+  font-size: 0.85em;
+}
+
+/* כפתור הזמנה */
+.btn-book {
+  background: linear-gradient(135deg, #66dbea 0%, #4b7fa2 100%);
+  background-size: 200% 200%;
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(103, 126, 234, 0.4);
+  animation: buttonGradient 3s ease infinite;
+}
+
+@keyframes buttonGradient {
+  0%, 100% { 
+    background-position: 0% 50%;
+  }
+  50% { 
+    background-position: 100% 50%;
+  }
+}
+
+.btn-book:hover {
+  transform: scale(1.1) translateY(-2px);
+  box-shadow: 
+    0 8px 25px rgba(103, 126, 234, 0.6),
+    0 0 30px rgba(118, 75, 162, 0.4);
+  animation: buttonPulseBook 0.6s ease-in-out infinite;
+}
+
+@keyframes buttonPulseBook {
+  0%, 100% { 
+    transform: scale(1.1) translateY(-2px);
+  }
+  50% { 
+    transform: scale(1.15) translateY(-3px);
+  }
+}
+
+.btn-book:active {
+  transform: scale(1.05) translateY(0);
+}
+
+/* מצב טעינה */
+.loading-state {
+  text-align: center;
+  padding: 80px 20px;
+  color: #fff;
+  font-size: 1.2em;
+  animation: fadeIn 1s ease-out;
+}
+
+.loading-state p {
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { 
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% { 
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
+/* הודעת שגיאה */
+.error-message {
+  text-align: center;
+  padding: 40px 20px;
+  color: #fff;
+  font-size: 1.2em;
+  background: rgba(255, 71, 87, 0.3);
+  border-radius: 15px;
+  margin: 20px;
+  box-shadow: 
+    0 4px 15px rgba(255, 71, 87, 0.2),
+    0 0 20px rgba(255, 71, 87, 0.3);
+  border: 2px solid rgba(255, 71, 87, 0.5);
+  animation: errorShake 0.5s ease-out;
+}
+
+@keyframes errorShake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-10px); }
+  75% { transform: translateX(10px); }
+}
+
+/* מצב ריק */
+.empty-state {
+  text-align: center;
+  padding: 80px 20px;
+  color: #fff;
+  animation: fadeIn 1s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.empty-heart {
+  font-size: 64px;
+  margin-bottom: 20px;
+  display: inline-block;
+  animation: emptyHeartPulse 2s ease-in-out infinite;
+}
+
+@keyframes emptyHeartPulse {
+  0%, 100% { 
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  50% { 
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+}
+
+.empty-state h2 {
+  margin-bottom: 15px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.empty-state p {
+  margin-bottom: 30px;
+  font-size: 1.1em;
+  opacity: 0.9;
+}
+
+.btn-home {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #fff;
+  border: none;
+  padding: 15px 40px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 1.1em;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 20px rgba(103, 126, 234, 0.4);
+}
+
+.btn-home:hover {
+  transform: scale(1.1) translateY(-3px);
+  box-shadow: 0 10px 30px rgba(103, 126, 234, 0.6);
+  animation: buttonPulse 0.6s ease-in-out infinite;
+}
+
+/* רספונסיביות */
+@media (max-width: 768px) {
+  .cabins-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 10px;
+  }
+
+  .favorites-header {
+    margin: 80px 0 30px;
+  }
+
+  .favorites-header h1 {
+    font-size: 1.8em;
+  }
+
+#home {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 5px;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  border-radius: 5px;
+  animation: colorPulse 3s ease-in-out infinite;
+  display: block;
+}
+
+#home:hover {
+  transform: scale(1.1) rotate(5deg);
+  background-color: rgba(0, 0, 0, 0.6);
+  animation: buttonPulse 0.6s ease-in-out infinite;
+}
+
+#home:active {
+  transform: scale(0.95);
+}
+
+  .card-image-wrapper {
+    height: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-wrapper {
+    padding: 10px;
+  }
+
+  .favorites-header h1 {
+    font-size: 1.5em;
+  }
+
+  .subtitle {
+    font-size: 0.95em;
+  }
+
+  .cabin-card {
+    border-radius: 15px;
+  }
+
+  .card-content {
+    padding: 15px;
+  }
+
+  .btn-book {
+    padding: 10px 20px;
+    font-size: 0.9em;
+  }
+
+  .price-amount {
+    font-size: 1.3em;
+  }
+
+  .favorite-badge {
+    width: 35px;
+    height: 35px;
+    padding: 6px;
+  }
+
+  .favorite-badge svg {
+    width: 18px;
+    height: 18px;
+  }
+}

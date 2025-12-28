@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>צימרים בארץ</title>
+  <link rel="stylesheet" href="../css/main.css">
+  <script defer src="../js/main.js"></script>
+</head>
+<body>
+  <header>
+    <h1>צימרים בארץ</h1>
+    <nav>
+      <button onclick="filterByRegion('all')">הכל</button>
+      <button onclick="filterByRegion('צפון')">צפון</button>
+      <button onclick="filterByRegion('מרכז')">מרכז</button>
+      <button onclick="filterByRegion('דרום')">דרום</button>
+      <button id="favoritesBtn">הצימרים שאהבתי ❤️</button>
+    </nav>
+  </header>
+
+  <div id="ownerControls">
+      <h3>ניהול בעלים</h3>
+      <button id="ownerCabinsBtn" onclick="window.location.href='ownerCabins.html'">צפייה בצימרים שלי</button>
+      <button id="ownerOrdersBtn" onclick="window.location.href='ownerOrders.html'">צפייה בהזמנות של הצימרים שלי</button>
+  </div>
+
+  <main id="cabin-list"></main>
+</body>
+</html>

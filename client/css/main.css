@@ -1,0 +1,557 @@
+/* ===================== בסיסי ===================== */
+* {
+  box-sizing: border-box;
+}
+
+/* ===================== אייקון בית - צד ימין ===================== */
+#home {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  transition: all 0.3s ease;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.1));
+}
+
+#homeA {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: white;
+  padding: 10px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  object-fit: contain;
+  display: block;
+  border: 2px solid #00bfff;
+  box-shadow: 
+    0 0 8px #f30707,
+    0 0 15px #690bed;
+  animation: glowPulse 2s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    box-shadow: 
+      0 0 8px #f30707,
+      0 0 15px #690bed;
+  }
+  50% {
+    box-shadow: 
+      0 0 12px #f30707,
+      0 0 20px #690bed;
+  }
+}
+
+#home:hover {
+  transform: scale(1.15) rotate(-5deg);
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #788ef0 0%, #5eb3be 50%, #e2a6e9 100%);
+  background-size: 400% 400%;
+  animation: gradientFlow 15s ease infinite;
+  background-attachment: fixed;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ===================== Header מעוצב ===================== */
+header {
+  background: linear-gradient(135deg, #66afea 0%, #a57bcf 100%);
+  padding: 8px 7px;
+  text-align: center;
+  color: white;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+header h1 {
+  margin: 0 0 5px 0;
+  font-size: 2.3rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  letter-spacing: 1px;
+  animation: fadeInDown 0.6s ease-out;
+  color: #fff;
+  text-shadow: 
+    0 0 10px rgba(255, 255, 255, 0.5),
+    0 0 20px rgba(255, 105, 180, 0.4),
+    0 0 30px rgba(138, 43, 226, 0.3);
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* שורה עליונה המאגדת את הכותרת, סינון ואת כפתורי ניהול הבעלים */
+.header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 10px auto 0 auto;
+  padding: 0 10px;
+  box-sizing: border-box;
+  flex-direction: row-reverse;
+}
+
+.header-row nav {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* ===================== כפתורי סינון מעוצבים ===================== */
+nav button {
+  margin: 5px;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 30px;
+  background: white;
+  color: #667eea;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+nav button::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(102, 126, 234, 0.1);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+nav button:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+nav button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+nav button:active {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.2);
+}
+
+/* ===================== כפתורי ניהול בעלים ===================== */
+#ownerControls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+#ownerControls h3 {
+  margin: 0;
+  font-size: 1rem;
+  color: white;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+#ownerControls button {
+  padding: 10px 20px;
+  border-radius: 25px;
+  background: rgba(255, 255, 255, 0.95);
+  color: #667eea;
+  border: 2px solid transparent;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+#ownerControls button:hover {
+  background: white;
+  border-color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3);
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+/* ===================== רשימת צימרים - Grid מעוצב ===================== */
+#cabin-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  padding: 40px 20px;
+  flex: 1;
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+  animation: fadeIn 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* ===================== כרטיסי צימרים מעוצבים ביותר ===================== */
+.cabin-card {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 
+    0 10px 30px rgba(0, 0, 0, 0.3),
+    0 0 20px rgba(103, 126, 234, 0.2);
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  text-align: right;
+  position: relative;
+  animation: slideUp 0.6s ease-out;
+  animation-fill-mode: both;
+  border: 2px solid transparent;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* אנימציה מדורגת לכרטיסים */
+.cabin-card:nth-child(1) { animation-delay: 0.1s; }
+.cabin-card:nth-child(2) { animation-delay: 0.2s; }
+.cabin-card:nth-child(3) { animation-delay: 0.3s; }
+.cabin-card:nth-child(4) { animation-delay: 0.4s; }
+.cabin-card:nth-child(5) { animation-delay: 0.5s; }
+.cabin-card:nth-child(6) { animation-delay: 0.6s; }
+
+.cabin-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(103, 126, 234, 0.1) 0%, rgba(240, 147, 251, 0.1) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.cabin-card:hover::before {
+  opacity: 1;
+}
+
+.cabin-card:hover {
+  transform: translateY(-15px) scale(1.03);
+  box-shadow: 
+    0 20px 50px rgba(0, 0, 0, 0.4),
+    0 0 40px rgba(103, 126, 234, 0.5),
+    0 0 60px rgba(240, 55, 165, 0.3);
+  border-color: rgba(103, 126, 234, 0.6);
+}
+
+/* תמונת הצימר */
+.cabin-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+  position: relative;
+}
+
+.cabin-card:hover img {
+  transform: scale(1.1);
+}
+
+/* גרדיאנט על התמונה */
+.cabin-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 220px;
+  background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.1) 100%);
+  pointer-events: none;
+}
+.cabin-card h3 {
+  color: #01070c !important;
+  margin: 25px 15px 13px 15px !important;
+}
+.cabin-card h3 {
+  
+  font-size: 1.4rem;
+  color: #2c3e50;
+  position: relative;
+  z-index: 2;
+  font-weight: 700;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.cabin-card p {
+  margin: 0 15px 12px;
+  font-size: 1rem;
+  color: #666;
+  position: relative;
+  z-index: 2;
+  line-height: 1.6;
+}
+
+/* אייקון מיקום ליד העיר (הפסקה הראשונה אחרי הכותרת) */
+
+.cabin-location {
+  display: flex;
+  align-items: right;
+  gap: 6px;
+  color: #7f8c8d;
+  margin-bottom: 7px;
+  font-size: 0.95em;
+}
+
+.cabin-location svg {
+  color: #667eea;
+  animation: pinPulse 2s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+@keyframes pinPulse {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
+
+
+.cabin-card h3,
+.cabin-location,
+.cabin-card p {
+  direction: rtl;
+}
+
+/* מחיר מודגש */
+.cabin-card p:last-of-type {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #a18cd1;
+  margin-bottom: 15px;
+}
+
+/* ===================== כפתור אהבתי מעוצב ===================== */
+.like-btn {
+  display: block;
+  margin: 0 15px 15px 15px;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 25px;
+  background: linear-gradient(135deg, #66c5ea 0%, #9a71c2 100%);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(103, 126, 234, 0.4);
+  position: relative;
+  z-index: 2;
+  font-size: 1rem;
+}
+
+.like-btn:hover {
+  transform: scale(1.1) translateY(-2px);
+  box-shadow: 
+    0 8px 25px rgba(103, 126, 234, 0.6),
+    0 0 30px rgba(118, 75, 162, 0.4);
+  animation: buttonPulseBook 0.6s ease-in-out infinite;
+}
+
+@keyframes buttonPulseBook {
+  0%, 100% { 
+    transform: scale(1.1) translateY(-2px);
+  }
+  50% { 
+    transform: scale(1.15) translateY(-3px);
+  }
+}
+
+.like-btn:active {
+  transform: scale(0.98);
+}
+
+/* ===================== Sidebar (מוסתר) ===================== */
+#ownerSidebar {
+  display: none;
+}
+
+/* ===================== כפתור "הצימרים שאהבתי" ===================== */
+#favoritesBtn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+  color: white !important;
+  border: 2px solid rgba(255, 255, 255, 0.3) !important;
+  animation: buttonGradient 3s ease infinite;
+}
+
+@keyframes buttonGradient {
+  0%, 100% { 
+    background-position: 0% 50%;
+  }
+  50% { 
+    background-position: 100% 50%;
+  }
+}
+
+#favoritesBtn:hover {
+  background: linear-gradient(135deg, #764ba2 0%, #667eea 100%) !important;
+  transform: translateY(-3px) !important;
+  box-shadow: 0 8px 30px rgba(103, 126, 234, 0.5) !important;
+}
+
+/* ===================== אפקטים נוספים ===================== */
+
+/* זוהר סביב הכרטיס בזמן hover */
+.cabin-card:hover {
+  box-shadow: 
+    0 20px 50px rgba(103, 126, 234, 0.4),
+    0 0 0 1px rgba(103, 126, 234, 0.1);
+}
+
+/* אנימציה לכפתורים */
+button {
+  position: relative;
+  z-index: 1;
+}
+
+/* ===================== Responsive Design ===================== */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 2rem;
+  }
+
+  .header-row {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .header-row nav,
+  #ownerControls {
+    width: 100%;
+    justify-content: center;
+  }
+
+  nav button,
+  #ownerControls button {
+    width: auto;
+    min-width: 120px;
+    margin: 5px;
+  }
+
+  #cabin-list {
+    grid-template-columns: 1fr;
+    padding: 20px 15px;
+    gap: 20px;
+  }
+
+  .cabin-card {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 480px) {
+  header h1 {
+    font-size: 1.6rem;
+  }
+
+  nav button {
+    padding: 10px 16px;
+    font-size: 0.9rem;
+  }
+
+  .cabin-card h3 {
+    font-size: 1.2rem;
+  }
+
+  .cabin-card img {
+    height: 180px;
+  }
+}
+
+/* ===================== אנימציות כניסה ===================== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* אפקט טעינה */
+.cabin-card {
+  will-change: transform;
+}
+
+/* הוספת מעבר חלק לכל האלמנטים */
+* {
+  transition: background-color 0.3s ease;
+}
+
+/* שיפור נראות הטקסט */
+.cabin-card h3 {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* עיצוב סקרולבר */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #a6c1ee 0%, #fbc2eb 100%);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%);
+}

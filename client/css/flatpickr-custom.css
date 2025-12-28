@@ -1,0 +1,13 @@
+
+
+/* flatpickr custom style for unavailable dates (selected range except checkout) - אדום חזק, לא מאופשר */
+.flatpickr-day.unavailable, .flatpickr-day.unavailable:hover {
+  background: #ff1744 !important;
+  color: #fff !important;
+  font-weight: bold !important;
+  cursor: not-allowed !important;
+  border-radius: 50% !important;
+  opacity: 1 !important;
+  pointer-events: none !important;
+  box-shadow: 0 0 0 2px #b71c1c33;
+}
