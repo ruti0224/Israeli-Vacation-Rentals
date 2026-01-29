@@ -419,36 +419,29 @@ form > label:nth-of-type(3),
 form > select {
   animation: slideInRight 0.4s ease-out 0.2s both;
 }
-
 form > label:nth-of-type(4),
 form > input:nth-of-type(3) {
   animation: slideInRight 0.4s ease-out 0.25s both;
 }
-
 form > label:nth-of-type(5),
 form > input:nth-of-type(4) {
   animation: slideInRight 0.4s ease-out 0.3s both;
 }
-
 form > label:nth-of-type(6),
 form > input:nth-of-type(5) {
   animation: slideInRight 0.4s ease-out 0.35s both;
 }
-
 form > label:nth-of-type(7),
 form > textarea {
   animation: slideInRight 0.4s ease-out 0.4s both;
 }
-
 form > label:nth-of-type(8),
 form > input:nth-of-type(6) {
   animation: slideInRight 0.4s ease-out 0.45s both;
 }
-
 button[type="submit"] {
   animation: slideInRight 0.4s ease-out 0.5s both;
 }
-
 @keyframes slideInRight {
   from {
     opacity: 0;
@@ -459,8 +452,6 @@ button[type="submit"] {
     transform: translateX(0);
   }
 }
-
-/* ===================== Focus states ===================== */
 button:focus,
 input:focus,
 textarea:focus,
@@ -468,15 +459,11 @@ select:focus {
   outline: 2px solid rgba(139, 157, 195, 0.3);
   outline-offset: 2px;
 }
-
-/* ===================== Placeholder ===================== */
 input::placeholder,
 textarea::placeholder {
   color: #a0aec0;
   opacity: 0.7;
 }
-
-/* ===================== Accessibility ===================== */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -486,26 +473,6 @@ textarea::placeholder {
     transition-duration: 0.01ms !important;
   }
 }
-
-/* ===================== עיצוב סקרולבר ===================== */
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: rgba(139, 157, 195, 0.1);
-  border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
-  border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(135deg, var(--secondary), var(--primary));
-}
-/* ===================== כפתור בית מעוצב ===================== */
 #home {
   position: fixed;
   top: 20px;
@@ -523,18 +490,15 @@ textarea::placeholder {
   border: 3px solid transparent;
   text-decoration: none;
 }
-
 #home:hover {
   transform: scale(1.15) rotate(5deg);
   box-shadow: 0 12px 35px rgba(255, 107, 107, 0.4);
   border-color: var(--accent);
   background: linear-gradient(135deg, #fff 0%, #ffe8e8 100%);
 }
-
 #home:active {
   transform: scale(1.05);
 }
-
 #homeA {
   width: 32px;
   height: 32px;
@@ -542,7 +506,6 @@ textarea::placeholder {
   filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
   transition: filter 0.3s ease;
 }
-
 #home:hover #homeA {
   filter: drop-shadow(0 2px 8px rgba(255, 107, 107, 0.5));
 }
