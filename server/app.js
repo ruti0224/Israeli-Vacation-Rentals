@@ -19,6 +19,9 @@ app.use(errorHandler);
 app.get('/', (req, res) => {
     res.sendFile(path.join(process.cwd(), 'client', 'index.html'));
 });
+app.get('/main', (req, res) => {
+    res.sendFile(path.join(process.cwd(), 'client', 'html', 'main.html'));
+});
 export default app;
 
 
