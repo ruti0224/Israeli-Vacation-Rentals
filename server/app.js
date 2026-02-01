@@ -17,7 +17,7 @@ app.use("/users",usersRoutes);
 app.use("/orders",ordersRoutes);
 app.use(errorHandler);
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '../index.html')); 
+    res.sendFile(path.join(process.cwd(), 'client', 'index.html'));
 });
 export default app;
 
