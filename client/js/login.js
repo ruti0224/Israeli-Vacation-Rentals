@@ -36,7 +36,7 @@ form.addEventListener('submit', async function(e) {
   }
 
   try {
-    const response = await fetch('http://localhost:3001/users/login', {
+    const response = await fetch('/users/login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ idUsers: idNumber, pin: password })
@@ -105,7 +105,7 @@ registerForm.addEventListener('submit', async function(e) {
   }
 
   try {
-    const response = await fetch('http://localhost:3001/users', {
+    const response = await fetch('/users', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ name, idUsers, mail, pin, role })

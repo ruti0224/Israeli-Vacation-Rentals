@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     return;
   }
   try {
-    const res = await fetch(`http://localhost:3001/cabins/owner/${idOwner}`);
+    const res = await fetch(`/owner/${idOwner}`);
     const cabins = await res.json();
     if (!cabins.length) {
       document.getElementById('cabinsList').innerHTML = '<p>לא נמצאו צימרים בבעלותך.</p>';
@@ -49,7 +49,7 @@ function renderCabins(cabins) {
       const id = this.getAttribute('data-id');
       if (confirm('האם למחוק את הצימר?')) {
         try {
-          const res = await fetch(`http://localhost:3001/cabins/${id}`, { method: 'DELETE' });
+          const res = await fetch(`/cabins/${id}`, { method: 'DELETE' });
           if (res.status === 204) {
             alert('הצימר נמחק בהצלחה');
             location.reload();

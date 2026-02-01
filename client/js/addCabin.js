@@ -11,7 +11,7 @@ window.addEventListener('DOMContentLoaded', async () => {
   cabinId = urlParams.get('id');
   if (cabinId) {
     try {
-      const res = await fetch(`http://localhost:3001/cabins/${cabinId}`);
+      const res = await fetch(`/cabins/${cabinId}`);
       const cabin = await res.json();
       if (cabin) {
         form.name.value = cabin.name || '';
@@ -55,7 +55,7 @@ form.addEventListener('submit', async function(e) {
     let response, data;
     if (cabinId) {
       // עדכון צימר
-      response = await fetch(`http://localhost:3001/cabins/${cabinId}`, {
+      response = await fetch(`/cabins/${cabinId}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -80,7 +80,7 @@ form.addEventListener('submit', async function(e) {
       }
     } else {
       // הוספת צימר
-      response = await fetch('http://localhost:3001/cabins', {
+      response = await fetch('/cabins', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

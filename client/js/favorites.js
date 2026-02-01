@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   container.innerHTML = '<div class="loading-state"><p>טוען צימרים...</p></div>';
   let cabins = [];
   try {
-    const res = await fetch('http://localhost:3001/cabins');
+    const res = await fetch('/cabins');
     if (res.ok) {
       cabins = await res.json();
     }
@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   let favorites = [];
   try {
-    const favRes = await fetch(`http://localhost:3001/users/${userId}/favorites`);
+    const favRes = await fetch(`/users/${userId}/favorites`);
     if (favRes.ok) {
       favorites = await favRes.json(); 
     }

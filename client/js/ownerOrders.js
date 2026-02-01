@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     return;
   }
   try {
-    const res = await fetch(`http://localhost:3001/orders/byOwner/${idOwner}`);
+    const res = await fetch(`/orders/byOwner/${idOwner}`);
     const orders = await res.json();
     if (!orders.length) {
       document.getElementById('ordersList').innerHTML = '<p>לא נמצאו הזמנות לצימרים שלך.</p>';
@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 });
 async function deleteOrder(orderId) {
   try {
-    const res = await fetch(`http://localhost:3001/orders/${orderId}`, { method: 'DELETE' })}
+    const res = await fetch(`/orders/${orderId}`, { method: 'DELETE' })}
     catch (err) {
     console.error('שגיאה במחיקת ההזמנה:', err);
   }
@@ -31,7 +31,7 @@ async function renderOrders(orders) {
   container.innerHTML = '';
   for (const order of orders) {
   try {
-    const res = await fetch(`http://localhost:3001/cabins/${order.cabinId}`);
+    const res = await fetch(`/cabins/${order.cabinId}`);
     const cabin = await res.json();
    
     const card = document.createElement('div');

@@ -28,7 +28,7 @@ async function displayCabins(list) {
   let favorites = [];
 
   try {
-    const res = await fetch(`http://localhost:3001/users/${userId}/favorites`);
+    const res = await fetch(`/users/${userId}/favorites`);
     if (res.ok) {
       favorites = await res.json();
     }
@@ -85,7 +85,7 @@ async function toggleFavorite(cabinId, btn) {
     if (!userId) return alert("משתמש לא מחובר");
     try {
         // שליפה מהשרת – מערך הצימרים שאהב המשתמש
-        const res = await fetch(`http://localhost:3001/users/${userId}/favorites`);
+        const res = await fetch(`/users/${userId}/favorites`);
         if (!res.ok) throw new Error("שגיאה בשליפת אהובים");
         const favorites = await res.json();
         let method;
@@ -95,7 +95,7 @@ async function toggleFavorite(cabinId, btn) {
             method = 'POST'; 
         }
 
-        const updateRes = await fetch(`http://localhost:3001/users/${userId}/favorites/${cabinId}`, {
+        const updateRes = await fetch(`/users/${userId}/favorites/${cabinId}`, {
             method,
             headers: { 'Content-Type': 'application/json' }
         });
@@ -120,7 +120,7 @@ document.getElementById("favoritesBtn").addEventListener("click", () => {
 let cabins = []; 
 async function initPage() {
   try {
-    const res = await fetch('http://localhost:3001/cabins');     
+    const res = await fetch('/cabins');     
     if (res.ok) {
       cabins = await res.json(); 
       displayCabins(cabins);     

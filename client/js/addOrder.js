@@ -17,7 +17,7 @@ let numOfBeds = null;
 
 async function getUnavailableDates(cabinId) {
   try {
-    const res = await fetch('http://localhost:3001/orders', { method: 'GET' });
+    const res = await fetch('/orders', { method: 'GET' });
     if (!res.ok) {
       console.error('נכשל בשליפת תאריכים תפוסים');
       return [];
@@ -44,7 +44,7 @@ async function getUnavailableDates(cabinId) {
 
 // שליפת מחיר ללילה ומספר מיטות מהשרת
 if (cabinId) {
-  fetch(`http://localhost:3001/cabins/${cabinId}`)
+  fetch(`/cabins/${cabinId}`)
     .then(res => res.json())
     .then(cabin => {
       pricePerNight = cabin.price;
@@ -167,7 +167,7 @@ form.addEventListener("submit", async (e) => {
 
   const userId = form.userId.value;
   try {
-    const userRes = await fetch(`http://localhost:3001/users/${userId}`, { method: 'GET' });
+    const userRes = await fetch(`/users/${userId}`, { method: 'GET' });
     if (userRes.status==404) {
       successMessage.textContent = "המשתמש לא קיים במערכת. לא ניתן להוסיף לו הזמנה.";
       return;
@@ -195,7 +195,7 @@ form.addEventListener("submit", async (e) => {
     totalPrice: totalPriceInput.value
   };
 
-  const response = await fetch("http://localhost:3001/orders", {
+  const response = await fetch("/orders", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(orderData),
