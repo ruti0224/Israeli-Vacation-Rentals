@@ -11,7 +11,7 @@ import cabinsRoutes from './routes/cabinsRoutes.js';
 import ordersRoutes from './routes/ordersRoutes.js';
 import usersRoutes from './routes/usersRoutes.js';
 app.use(express.json());
-app.use(express.static(path.join(__dirname, '../client')));
+app.use('/client', express.static(path.join(__dirname, '../client')));
 app.use("/cabins",cabinsRoutes);
 app.use("/users",usersRoutes);
 app.use("/orders",ordersRoutes);
